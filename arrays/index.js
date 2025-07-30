@@ -1,6 +1,5 @@
 const name = ["T", "r", "i", "s", "t", "a", "n"];
 
-
 // ---------------------------------------------------------<{ destructuring }>
 const [tomato, mushroom, carrot] = ["🍅", "🍄", "🥕"];
 
@@ -78,6 +77,106 @@ console.log(mixedArray);
 // Using the callback is called in this case a 'comparitive function'.
 // You can write a comparitive function for strings to create a descending sort.
 
+// splice() - 'splice into an array' - can be used to delete, select from, and add to an array - returns the deleted items as an array
+// splice(start, deleteCount, item1, item2)
+console.log(mixedArray);
+mixedArray.splice(0, 5, 30, ...oneToTen);
+console.log(mixedArray);
+
+// at()
+const junkFoodILove = [
+  "🍕",
+  "🍔",
+  "🍟",
+  "🥓",
+  "🥞",
+  "🧇",
+  "🌯",
+  "🫔",
+  "🍖",
+  "🍗",
+  "🥩",
+  "🍠",
+  "🥟",
+  "🥡",
+  "🍱",
+  "🍙",
+  "🍜",
+  "🍣",
+  "🍤",
+  "🍩",
+  "🍦",
+  "🥧",
+  "🍫",
+  "☕",
+  "🍺",
+  "🫒",
+];
+console.log(junkFoodILove.at(-5)); // you can use this to pull an item from an array by counting backwards.
+
+// copyWithin() - copys a section of an array to a target location in the array
+console.log("copyWithin");
+const oneToThree = [1, 2, 3];
+console.log(oneToThree);
+oneToThree.copyWithin(2, 0, 3);
+console.log(oneToThree); // apparently it will only overwrite already taken indexes and will not add additional indexes... :(
+
+// flat(int: level of flatening - can use 'infinity') - flatens nested arrays - non-mutating - it will only flaten the first level of nesting by defualt.
+const nestedArray = [1, 2, [3, 4]];
+console.log(nestedArray);
+nestedArray.flat(); // this doesn't work since it's a non-mutating method.
+console.log(nestedArray.flat());
+
+// grouping
+// groupBy() - this will group a - This is new and will not work in node 18...
+const employees = [
+  { name: "Bob", dept: "Engineering", salary: 5000 },
+  { name: "Alex", dept: "HR", salary: 3000 },
+  { name: "Ravi", dept: "Engineering", salary: 7000 },
+  { name: "John", dept: "Engineering", salary: 1000 },
+  { name: "Tom", dept: "Sales", salary: 6000 },
+];
+
+console.log(employees);
+//const groupedByDepot = Object.groupBy(employees, ({ dept }) => dept);
+//console.log(groupedByDepot);
+
+// custom grouping
+//const groupedBySales = Object.groupBy(employees, ({salary}) => {
+//return salary >= 5000 ? "5K+" : "<5K";
+//});
+
+//toReversed() - like reverse() but it doesn't mutate the source array
+
+// toSorted() - like sort() but it doesn't mutate the source array
+
+// toSliced() - like slice() but it doesn't mutate the source array
+
+{
+// with() -
+  const nums = [1, 2, 3, 4, 5];
+  nums[2] = 6; // This mutates the array...
+  console.log(nums);
+
+  // with(index, value)
+  // const newArray = nums.with(2, 6) // This does the samething but with a copied state so the source array doesn't change.
+  // this doesn't work in node yet...
+}
 
 
-// ---------------------------------------------------------<{  }>
+// ---------------------------------------------------------<{ Array Like }>
+{
+  const ob = {key: "value"}; // Object
+  const array = [1, 2, 3]; // Array
+
+  // 'Array Like' is close to an array but is missing the methods
+
+  const arr_like = {0: 'I', 1: 'am', 2: 'array-like', length: 3};
+  console.log(arr_like);
+
+  arr_like[2]; // 'array-like'
+  arr_like.length; // 3
+
+  // arr_like.pop() // this will not work.
+
+}
