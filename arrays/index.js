@@ -153,7 +153,7 @@ console.log(employees);
 // toSliced() - like slice() but it doesn't mutate the source array
 
 {
-// with() -
+  // with() -
   const nums = [1, 2, 3, 4, 5];
   nums[2] = 6; // This mutates the array...
   console.log(nums);
@@ -163,15 +163,14 @@ console.log(employees);
   // this doesn't work in node yet...
 }
 
-
 // ---------------------------------------------------------<{ Array Like }>
 {
-  const ob = {key: "value"}; // Object
+  const ob = { key: "value" }; // Object
   const array = [1, 2, 3]; // Array
 
   // 'Array Like' is close to an array but is missing the methods
 
-  const arr_like = {0: 'I', 1: 'am', 2: 'array-like', length: 3};
+  const arr_like = { 0: "I", 1: "am", 2: "array-like", length: 3 };
   console.log(arr_like);
 
   arr_like[2]; // 'array-like'
@@ -179,4 +178,72 @@ console.log(employees);
 
   // arr_like.pop() // this will not work.
 
+  // Array Like is simply an object that acts like an Array. It has keys that act like an index and a .length attribute/method
+}
+
+// -----------------------------------------------------------------------------------<{ Iterator functions/mothods }>
+// ---------------------------------------------------------<{ filter() }>
+// array.filter(elementIteration, index, arraySelfReferance) - returns (to the new array) the iterations that return TRUE | non mutating
+{
+  const customers = [
+    {
+      id: 1,
+      name: "Alice Johnson",
+      email: "alice.johnson@example.com",
+      phone: "(555) 123-4567",
+      address: "123 Maple St, Springfield, IL",
+      joined: "2023-05-10",
+      isActive: true,
+      totalSpent: 1280.75,
+    },
+    {
+      id: 2,
+      name: "Bob Smith",
+      email: "bob.smith@example.com",
+      phone: "(555) 987-6543",
+      address: "456 Oak Ave, Metropolis, NY",
+      joined: "2022-11-03",
+      isActive: false,
+      totalSpent: 547.2,
+    },
+    {
+      id: 3,
+      name: "Clara Martinez",
+      email: "clara.martinez@example.com",
+      phone: "(555) 765-4321",
+      address: "789 Pine Rd, Gotham, NJ",
+      joined: "2024-01-15",
+      isActive: true,
+      totalSpent: 2150.0,
+    },
+    {
+      id: 4,
+      name: "David Lee",
+      email: "david.lee@example.com",
+      phone: "(555) 321-9876",
+      address: "321 Birch Ln, Star City, CA",
+      joined: "2021-08-22",
+      isActive: true,
+      totalSpent: 349.99,
+    },
+    {
+      id: 5,
+      name: "Ella Wong",
+      email: "ella.wong@example.com",
+      phone: "(555) 654-1230",
+      address: "159 Cedar Blvd, Central City, TX",
+      joined: "2023-07-04",
+      isActive: false,
+      totalSpent: 890.55,
+    },
+  ];
+
+  const filteredCustomers = customers.filter((customer) => {
+    return customer.isActive == true;
+  });
+
+  console.log("Active Customers: ", filteredCustomers.length);
+  console.log("All Customers: ", customers.length);
+
+  // ---------------------------------------------------------<{ map() }>
 }
